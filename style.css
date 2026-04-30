@@ -650,6 +650,9 @@ img,
 
   .has-submenu.open .submenu {
     display: block;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
   }
 
   .submenu a {
