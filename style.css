@@ -494,28 +494,90 @@ img,
 /* CONTATO */
 .contact-page-main {
   min-height: calc(100vh - var(--header-height));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 42px 24px;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  background: var(--white);
 }
 
-.contact-form-only-section {
-  width: min(100%, 760px);
+.contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 60px 56px 60px 40px;
+  border-right: 1px solid var(--line);
+}
+
+.contact-info-inner {
+  width: min(100%, 360px);
+}
+
+.contact-info-inner h1 {
+  color: var(--title);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.contact-intro {
+  color: var(--text-soft);
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.contact-detail {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 36px;
+}
+
+.contact-detail i {
+  color: var(--blue-400);
+  font-size: 1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.contact-detail-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  border: none;
+  color: var(--white);
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-whatsapp i {
+  font-size: 1.2rem;
+}
+
+.btn-whatsapp:hover {
+  background: #1fba5a;
+  transform: translateY(-1px);
+}
+
+.contact-form-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 60px 40px 60px 56px;
 }
 
 .contact-form {
-  background: var(--white);
-  border: 1px solid rgba(113, 158, 199, 0.14);
-  border-radius: var(--radius-xl);
-  padding: clamp(28px, 4vw, 46px);
-  box-shadow: var(--shadow-card);
+  width: min(100%, 520px);
   display: grid;
-  gap: 16px;
-}
-
-.contact-form-only {
-  width: 100%;
+  gap: 14px;
 }
 
 .form-group input,
@@ -716,7 +778,22 @@ img,
   }
 
   .contact-page-main {
-    padding: 24px;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    justify-content: flex-start;
+    padding: 48px 24px 36px;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-form-wrap {
+    padding: 36px 24px 48px;
+  }
+
+  .contact-form {
+    width: 100%;
   }
 
   .about-split-inner h1 {
