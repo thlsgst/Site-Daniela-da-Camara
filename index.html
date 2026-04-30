@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quem Somos | Daniela da Camara</title>
+  <title>Home | Daniela da Camara</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +20,8 @@
 
       <nav class="main-nav" id="mainNav" aria-label="Menu principal">
         <ul class="nav-list">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="quem-somos.html" class="nav-link active">Quem Somos</a></li>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="quem-somos.html" class="nav-link">Quem Somos</a></li>
 
           <li class="has-submenu" id="projectsMenu">
             <button class="submenu-toggle nav-button" id="submenuToggle" type="button" aria-expanded="false" aria-controls="projectsSubmenu">
@@ -56,27 +56,73 @@
     </div>
   </header>
 
-  <main class="about-page-main">
-    <section class="about-split-layout">
-      <div class="about-split-image">
-        <img src="./assets/IMG_4993.jpg" alt="Imagem institucional Daniela da Camara">
-      </div>
+  <main class="gallery-page-main">
+    <section class="projects-grid projects-grid-home" id="projetos">
+      <article class="project-tile project-card" data-category="residenciais">
+        <a href="#" class="project-tile-link">
+          <div class="project-tile-image">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80" alt="Projeto residencial 1">
+          </div>
+          <div class="project-tile-overlay">
+            <h2>Casa Horizonte</h2>
+          </div>
+        </a>
+      </article>
 
-      <div class="about-split-text">
-        <div class="about-split-inner">
-          <h1>QUEM SOMOS</h1>
+      <article class="project-tile project-card" data-category="corporativos">
+        <a href="#" class="project-tile-link">
+          <div class="project-tile-image">
+            <img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1800&q=80" alt="Projeto corporativo 1">
+          </div>
+          <div class="project-tile-overlay">
+            <h2>Studio Orbe</h2>
+          </div>
+        </a>
+      </article>
 
-          <p>Daniela da Camara é arquiteta há mais de 20 anos. Nesse tempo, aprendeu que um espaço nunca é neutro. Ele guarda memórias, revela quem somos e desperta algo que a gente carrega, mas nem sempre sabe nomear.</p>
+      <article class="project-tile project-card" data-category="interiores">
+        <a href="#" class="project-tile-link">
+          <div class="project-tile-image">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1800&q=80" alt="Projeto interiores 1">
+          </div>
+          <div class="project-tile-overlay">
+            <h2>Apartamento Essência</h2>
+          </div>
+        </a>
+      </article>
 
-          <p>O nosso trabalho começa antes do projeto. Começa na escuta, no entendimento de quem você é e do que você quer sentir quando entra no seu próprio espaço.</p>
+      <article class="project-tile project-card" data-category="residenciais">
+        <a href="#" class="project-tile-link">
+          <div class="project-tile-image">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80" alt="Projeto residencial 2">
+          </div>
+          <div class="project-tile-overlay">
+            <h2>Residência Aurora</h2>
+          </div>
+        </a>
+      </article>
 
-          <p>A partir daí, luz, textura, cor e atmosfera deixam de ser escolhas e passam a ser uma linguagem. Construída com precisão para traduzir a sua essência.</p>
+      <article class="project-tile project-card" data-category="corporativos">
+        <a href="#" class="project-tile-link">
+          <div class="project-tile-image">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=80" alt="Projeto corporativo 2">
+          </div>
+          <div class="project-tile-overlay">
+            <h2>Escritório Nexus</h2>
+          </div>
+        </a>
+      </article>
 
-          <p>Não seguimos tendências. Não trabalhamos com o genérico seguro. Cada projeto é único porque cada pessoa é única.</p>
-
-          <p>O que entregamos não é apenas um ambiente bem projetado. É o lugar onde a sua vida acontece. É onde ela faz sentido.</p>
-        </div>
-      </div>
+      <article class="project-tile project-card" data-category="interiores">
+        <a href="#" class="project-tile-link">
+          <div class="project-tile-image">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80" alt="Projeto interiores 2">
+          </div>
+          <div class="project-tile-overlay">
+            <h2>Loft Vértice</h2>
+          </div>
+        </a>
+      </article>
     </section>
   </main>
 
