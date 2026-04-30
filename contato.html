@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | Daniela da Camara</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Ir para a página inicial">
+        <img src="./assets/3.svg" alt="Daniela da Camara" class="logo-image">
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="quem-somos.html" class="nav-link">Quem Somos</a></li>
+
+          <li class="has-submenu" id="projectsMenu">
+            <button class="submenu-toggle nav-button" id="submenuToggle" type="button" aria-expanded="false" aria-controls="projectsSubmenu">
+              Projetos
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <ul class="submenu" id="projectsSubmenu">
+              <li><a href="projetos.html">Todos</a></li>
+              <li><a href="projetos.html?categoria=residenciais">Residenciais</a></li>
+              <li><a href="projetos.html?categoria=corporativos">Corporativos</a></li>
+              <li><a href="projetos.html?categoria=interiores">Interiores</a></li>
+            </ul>
+          </li>
+
+          <li><a href="contato.html" class="nav-link active">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="contact-page-main">
+    <section class="contact-form-only-section">
+      <form class="contact-form contact-form-only">
+        <div class="form-group">
+          <input type="text" placeholder="Nome" />
+        </div>
+
+        <div class="form-group">
+          <input type="email" placeholder="E-mail" />
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Assunto" />
+        </div>
+
+        <div class="form-group">
+          <textarea rows="7" placeholder="Mensagem"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

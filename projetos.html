@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projetos | Daniela da Camara</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Ir para a página inicial">
+        <img src="./assets/3.svg" alt="Daniela da Camara" class="logo-image">
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="quem-somos.html" class="nav-link">Quem Somos</a></li>
+
+          <li class="has-submenu" id="projectsMenu">
+            <button class="submenu-toggle nav-button" id="submenuToggle" type="button" aria-expanded="false" aria-controls="projectsSubmenu">
+              Projetos
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <ul class="submenu" id="projectsSubmenu">
+              <li><a href="projetos.html">Todos</a></li>
+              <li><a href="projetos.html?categoria=residenciais">Residenciais</a></li>
+              <li><a href="projetos.html?categoria=corporativos">Corporativos</a></li>
+              <li><a href="projetos.html?categoria=interiores">Interiores</a></li>
+            </ul>
+          </li>
+
+          <li><a href="contato.html" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+<main class="gallery-page-main">
+  <section class="projects-grid projects-grid-projects" id="projetos">
+    <article class="project-tile project-card" data-category="residenciais">
+      <a href="#" class="project-tile-link">
+        <div class="project-tile-image">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80" alt="Projeto residencial 1">
+        </div>
+        <div class="project-tile-overlay">
+          <h2>Casa Horizonte</h2>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-card" data-category="corporativos">
+      <a href="#" class="project-tile-link">
+        <div class="project-tile-image">
+          <img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1800&q=80" alt="Projeto corporativo 1">
+        </div>
+        <div class="project-tile-overlay">
+          <h2>Studio Orbe</h2>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-card" data-category="interiores">
+      <a href="#" class="project-tile-link">
+        <div class="project-tile-image">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1800&q=80" alt="Projeto interiores 1">
+        </div>
+        <div class="project-tile-overlay">
+          <h2>Apartamento Essência</h2>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-card" data-category="residenciais">
+      <a href="#" class="project-tile-link">
+        <div class="project-tile-image">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80" alt="Projeto residencial 2">
+        </div>
+        <div class="project-tile-overlay">
+          <h2>Residência Aurora</h2>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-card" data-category="corporativos">
+      <a href="#" class="project-tile-link">
+        <div class="project-tile-image">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=80" alt="Projeto corporativo 2">
+        </div>
+        <div class="project-tile-overlay">
+          <h2>Escritório Nexus</h2>
+        </div>
+      </a>
+    </article>
+
+    <article class="project-tile project-card" data-category="interiores">
+      <a href="#" class="project-tile-link">
+        <div class="project-tile-image">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80" alt="Projeto interiores 2">
+        </div>
+        <div class="project-tile-overlay">
+          <h2>Loft Vértice</h2>
+        </div>
+      </a>
+    </article>
+  </section>
+</main>
+
+  <script src="script.js"></script>
+</body>
+</html>
