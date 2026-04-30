@@ -484,6 +484,12 @@ img,
   margin-top: 18px;
 }
 
+.about-tagline {
+  margin-top: 48px !important;
+  font-style: italic;
+  color: var(--title) !important;
+}
+
 /* CONTATO */
 .contact-page-main {
   min-height: calc(100vh - var(--header-height));
