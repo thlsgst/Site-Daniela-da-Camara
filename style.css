@@ -337,6 +337,43 @@ img,
   transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
+/* ANIMAÇÃO HOME */
+.script-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+}
+
+.script-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  color: var(--white);
+  text-align: center;
+  text-shadow:
+    0 2px 12px rgba(18, 39, 52, 0.45),
+    0 0 40px rgba(18, 39, 52, 0.2);
+  animation:
+    scriptWrite 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both,
+    scriptFade  0.45s ease-in 1.8s forwards;
+}
+
+@keyframes scriptWrite {
+  0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+  8%   { clip-path: inset(0 100% 0 0); opacity: 1; }
+  100% { clip-path: inset(0 0%   0 0); opacity: 1; }
+}
+
+@keyframes scriptFade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
 /* HOME E PROJETOS */
 .gallery-page-main {
   width: 100%;
