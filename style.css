@@ -337,6 +337,16 @@ img,
   transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
+/* FONTE TT MILK SCRIPT */
+@font-face {
+  font-family: 'TT Milk Script';
+  src: url('./assets/TT Milk Script Regular.woff2') format('woff2'),
+       url('./assets/TT Milk Script Regular.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ANIMAÇÃO HOME */
 .script-overlay {
   position: fixed;
@@ -347,31 +357,32 @@ img,
   align-items: center;
   justify-content: center;
   padding: 0 32px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: overlayLifecycle 2.4s ease forwards;
 }
 
 .script-text {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'TT Milk Script', cursive;
   font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--white);
   text-align: center;
-  text-shadow:
-    0 2px 12px rgba(18, 39, 52, 0.45),
-    0 0 40px rgba(18, 39, 52, 0.2);
-  animation:
-    scriptWrite 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both,
-    scriptFade  0.45s ease-in 1.8s forwards;
+  text-shadow: 0 2px 20px rgba(18, 39, 52, 0.35);
+  clip-path: inset(0 100% 0 0);
+  animation: scriptWrite 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.22s forwards;
+}
+
+@keyframes overlayLifecycle {
+  0%   { opacity: 0; }
+  12%  { opacity: 1; }
+  78%  { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 @keyframes scriptWrite {
-  0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
-  8%   { clip-path: inset(0 100% 0 0); opacity: 1; }
-  100% { clip-path: inset(0 0%   0 0); opacity: 1; }
-}
-
-@keyframes scriptFade {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0%   0 0); }
 }
 
 /* HOME E PROJETOS */

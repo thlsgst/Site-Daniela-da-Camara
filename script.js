@@ -1,14 +1,11 @@
 /* ANIMAÇÃO HOME */
 const scriptOverlay = document.getElementById("scriptOverlay");
 if (scriptOverlay) {
-  const scriptText = scriptOverlay.querySelector(".script-text");
-  if (scriptText) {
-    scriptText.addEventListener("animationend", (e) => {
-      if (e.animationName === "scriptFade") {
-        scriptOverlay.remove();
-      }
-    });
-  }
+  scriptOverlay.addEventListener("animationend", (e) => {
+    if (e.animationName === "overlayLifecycle") {
+      scriptOverlay.remove();
+    }
+  });
 }
 
 const menuToggle = document.getElementById("menuToggle");
