@@ -352,14 +352,15 @@ img,
   position: fixed;
   inset: 0;
   z-index: 9999;
-  pointer-events: none;
+  pointer-events: all;
+  cursor: default;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 32px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  animation: overlayLifecycle 2.4s ease forwards;
+  animation: overlayLifecycle 3s ease forwards;
 }
 
 .script-text {
@@ -369,20 +370,20 @@ img,
   color: var(--white);
   text-align: center;
   text-shadow: 0 2px 20px rgba(18, 39, 52, 0.35);
-  clip-path: inset(0 100% 0 0);
-  animation: scriptWrite 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.22s forwards;
+  animation: scriptWrite 2.1s cubic-bezier(0.4, 0, 0.6, 1) 0.3s both;
 }
 
 @keyframes overlayLifecycle {
   0%   { opacity: 0; }
-  12%  { opacity: 1; }
-  78%  { opacity: 1; }
+  10%  { opacity: 1; }
+  83%  { opacity: 1; }
   100% { opacity: 0; }
 }
 
 @keyframes scriptWrite {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0%   0 0); }
+  0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+  25%  { clip-path: inset(0 75%  0 0); opacity: 1; }
+  100% { clip-path: inset(0 0%   0 0); opacity: 1; }
 }
 
 /* HOME E PROJETOS */
