@@ -375,6 +375,11 @@ img,
   margin-top: calc(var(--header-height) + clamp(320px, 34vw, 620px));
   transform: translateY(-50%);
   animation: scriptWrite 2.1s cubic-bezier(0.4, 0, 0.6, 1) 0.3s forwards;
+  /* spans inline no desktop */
+}
+
+.script-line {
+  display: inline;
 }
 
 @keyframes overlayLifecycle {
@@ -866,5 +871,28 @@ img,
 
   .about-split-inner h1 {
     margin-bottom: 22px;
+  }
+
+  /* Animação mobile — duas linhas com fade separado */
+  .script-text {
+    clip-path: none;
+    animation: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .script-line {
+    display: block;
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .script-line-1 {
+    animation: scriptWrite 0.9s cubic-bezier(0.4, 0, 0.6, 1) 0.3s forwards;
+  }
+
+  .script-line-2 {
+    animation: scriptWrite 0.9s cubic-bezier(0.4, 0, 0.6, 1) 1.3s forwards;
   }
 }
