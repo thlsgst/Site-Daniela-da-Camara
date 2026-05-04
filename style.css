@@ -361,7 +361,7 @@ img,
   opacity: 0;
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
-  animation: overlayLifecycle 3s ease forwards;
+  animation: overlayLifecycle 3.5s ease forwards;
 }
 
 .script-text {
@@ -383,12 +383,12 @@ img,
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
   }
-  10%  {
+  9%  {
     opacity: 1;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
-  83%  {
+  86%  {
     opacity: 1;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
