@@ -533,7 +533,7 @@ img,
   justify-content: center;
   padding: 60px;
   overflow-y: auto;
-  background: var(--white);
+  background: #c2d0dd;
 }
 
 .about-split-inner {
@@ -542,7 +542,7 @@ img,
 }
 
 .about-split-inner h1 {
-  color: var(--title);
+  color: var(--white);
   font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -550,7 +550,7 @@ img,
 }
 
 .about-split-inner p {
-  color: var(--text-soft);
+  color: var(--white);
   font-size: 1rem;
 }
 
@@ -562,8 +562,8 @@ img,
   margin-top: 48px !important;
   font-family: 'TT Milks Script', cursive;
   font-style: normal;
-  font-size: 1.15rem;
-  color: var(--title) !important;
+  font-size: 1.6rem;
+  color: var(--white) !important;
 }
 
 /* CONTATO */
