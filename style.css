@@ -560,7 +560,9 @@ img,
 
 .about-tagline {
   margin-top: 48px !important;
-  font-style: italic;
+  font-family: 'TT Milks Script', cursive;
+  font-style: normal;
+  font-size: 1.15rem;
   color: var(--title) !important;
 }
 
