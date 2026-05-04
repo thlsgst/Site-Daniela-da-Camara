@@ -562,7 +562,7 @@ img,
   margin-top: 48px !important;
   font-family: 'TT Milks Script', cursive;
   font-style: normal;
-  font-size: 3rem;
+  font-size: 3rem !important;
   color: var(--white) !important;
 }
 
