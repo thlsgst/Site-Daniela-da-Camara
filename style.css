@@ -337,11 +337,11 @@ img,
   transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
-/* FONTE TT MILK SCRIPT */
+/* FONTE TT MILKS SCRIPT */
 @font-face {
-  font-family: 'TT Milk Script';
-  src: url('./assets/TT Milk Script Regular.woff2') format('woff2'),
-       url('./assets/TT Milk Script Regular.woff')  format('woff');
+  font-family: 'TT Milks Script';
+  src: url('./assets/TT Milks Script Regular.woff2') format('woff2'),
+       url('./assets/TT Milks Script Regular.woff')  format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -355,7 +355,7 @@ img,
   pointer-events: all;
   cursor: default;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 0 32px;
   opacity: 0;
@@ -365,13 +365,15 @@ img,
 }
 
 .script-text {
-  font-family: 'TT Milk Script', cursive;
+  font-family: 'TT Milks Script', cursive;
   font-size: clamp(1.6rem, 3.5vw, 2.8rem);
   font-weight: 400;
   color: var(--white);
   text-align: center;
   text-shadow: 0 2px 20px rgba(18, 39, 52, 0.35);
   clip-path: inset(0 100% 0 0);
+  margin-top: calc(var(--header-height) + clamp(320px, 34vw, 620px));
+  transform: translateY(-50%);
   animation: scriptWrite 2.1s cubic-bezier(0.4, 0, 0.6, 1) 0.3s forwards;
 }
 
