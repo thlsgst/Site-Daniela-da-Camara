@@ -358,8 +358,9 @@ img,
   align-items: center;
   justify-content: center;
   padding: 0 32px;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  opacity: 0;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
   animation: overlayLifecycle 3s ease forwards;
 }
 
@@ -375,10 +376,26 @@ img,
 }
 
 @keyframes overlayLifecycle {
-  0%   { opacity: 0; }
-  10%  { opacity: 1; }
-  83%  { opacity: 1; }
-  100% { opacity: 0; }
+  0%   {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+  10%  {
+    opacity: 1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  83%  {
+    opacity: 1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
 }
 
 @keyframes scriptWrite {
