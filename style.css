@@ -505,6 +505,48 @@ img,
   transform: translateY(0);
 }
 
+/* FOTO ÚNICA (sem interação) */
+.project-tile.is-single {
+  cursor: default;
+}
+
+.project-tile.is-single:hover .project-tile-image img {
+  transform: none;
+  filter: none;
+}
+
+/* PÁGINA DE PROJETO */
+.project-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 40px clamp(24px, 5vw, 80px) 28px;
+}
+
+.project-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-soft);
+  transition: color var(--transition-fast);
+}
+
+.project-back:hover {
+  color: var(--blue-500);
+}
+
+.project-detail-header h1 {
+  color: var(--title);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
 /* GALERIA HOME (rotativa) */
 .home-tile {
   position: relative;

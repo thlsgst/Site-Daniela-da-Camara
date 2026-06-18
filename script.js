@@ -148,11 +148,16 @@ function filterProjects(category) {
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const counts = { residenciais: 19, interiores: 5, corporativos: 16 };
+  const counts = {
+    "apto-areta-e-fabio": 13,
+    "casa-eliana": 6,
+    "interiores": 5,
+    "sutti-advogados": 16,
+  };
   const pool = [];
-  Object.keys(counts).forEach((cat) => {
-    for (let i = 1; i <= counts[cat]; i++) {
-      pool.push(`./assets/galeria/${cat}-${String(i).padStart(2, "0")}.webp`);
+  Object.keys(counts).forEach((slug) => {
+    for (let i = 1; i <= counts[slug]; i++) {
+      pool.push(`./assets/galeria/${slug}-${String(i).padStart(2, "0")}.webp`);
     }
   });
 
