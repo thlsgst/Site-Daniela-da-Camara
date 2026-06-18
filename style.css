@@ -366,20 +366,31 @@ img,
 
 .script-text {
   font-family: 'TT Milks Script', cursive;
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-size: clamp(2rem, 3.2vw, 3.6rem);
   font-weight: 400;
   color: var(--white);
   text-align: center;
   text-shadow: 0 2px 20px rgba(18, 39, 52, 0.35);
-  clip-path: inset(0 100% 0 0);
   margin-top: calc(var(--header-height) + (100vh - var(--header-height)) / 2);
   transform: translateY(-50%);
-  animation: scriptWrite 2.1s cubic-bezier(0.4, 0, 0.6, 1) 0.3s forwards;
-  /* spans inline no desktop */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05em;
+  line-height: 1.12;
 }
 
 .script-line {
-  display: inline;
+  display: block;
+  clip-path: inset(0 100% 0 0);
+}
+
+.script-line-1 {
+  animation: scriptWrite 1.2s cubic-bezier(0.4, 0, 0.6, 1) 0.3s forwards;
+}
+
+.script-line-2 {
+  animation: scriptWrite 1.2s cubic-bezier(0.4, 0, 0.6, 1) 1.4s forwards;
 }
 
 @keyframes overlayLifecycle {
@@ -600,7 +611,7 @@ img,
   justify-content: center;
   padding: 60px;
   overflow-y: auto;
-  background: #c2d0dd;
+  background: #3e5b72;
 }
 
 .about-split-inner {
@@ -976,7 +987,7 @@ img,
   }
 }
 
-/* TABLETS / IPAD — frase de carregamento em duas linhas, preenchendo a tela */
+/* TABLETS / IPAD — frase centralizada e maior, preenchendo a tela */
 @media (max-width: 1024px) {
   .script-overlay {
     align-items: center;
@@ -985,26 +996,14 @@ img,
   .script-text {
     margin-top: 0;
     transform: none;
-    clip-path: none;
-    animation: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.1em;
     line-height: 1.05;
-    font-size: clamp(2.4rem, 9vw, 4.6rem);
+    font-size: clamp(2.2rem, 8vw, 4.6rem);
   }
+}
 
-  .script-line {
-    display: block;
-    clip-path: inset(0 100% 0 0);
-  }
-
-  .script-line-1 {
-    animation: scriptWrite 0.9s cubic-bezier(0.4, 0, 0.6, 1) 0.3s forwards;
-  }
-
-  .script-line-2 {
-    animation: scriptWrite 0.9s cubic-bezier(0.4, 0, 0.6, 1) 1.3s forwards;
+/* MOBILE — reduz a frase para caber confortavelmente em duas linhas */
+@media (max-width: 600px) {
+  .script-text {
+    font-size: clamp(1.6rem, 7.2vw, 2.6rem);
   }
 }
