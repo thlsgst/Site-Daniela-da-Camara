@@ -15,7 +15,6 @@ const projectsMenu = document.getElementById("projectsMenu");
 const submenuToggle = document.getElementById("submenuToggle");
 const submenu = document.getElementById("projectsSubmenu");
 
-const projectLinks = document.querySelectorAll(".project-filter");
 const galleryItems = document.querySelectorAll(".project-card");
 const contactForm = document.querySelector(".contact-form");
 const navLinks = document.querySelectorAll(".nav-link");
@@ -85,20 +84,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-projectLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    closeSubmenu();
-
-    if (isMobileMenu() && mainNav) {
-      mainNav.classList.remove("open");
-    }
-
-    if (menuToggle) {
-      menuToggle.setAttribute("aria-expanded", "false");
-    }
-  });
-});
-
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     closeSubmenu();
@@ -154,6 +139,67 @@ function filterProjects(category) {
       filterProjects("all");
     }
   }
+})();
+
+/* GALERIA HOME — rotação aleatória sem repetir imagem visível */
+(function rotateHomeGallery() {
+  const gallery = document.getElementById("homeGallery");
+  if (!gallery) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const counts = { residenciais: 19, interiores: 5, corporativos: 16 };
+  const pool = [];
+  Object.keys(counts).forEach((cat) => {
+    for (let i = 1; i <= counts[cat]; i++) {
+      pool.push(`./assets/galeria/${cat}-${String(i).padStart(2, "0")}.webp`);
+    }
+  });
+
+  const tiles = Array.from(gallery.querySelectorAll(".home-tile"));
+  // imagens atualmente visíveis (uma por tile)
+  const shown = tiles.map((tile) => {
+    const active = tile.querySelector(".home-tile-img.is-active");
+    return active ? new URL(active.getAttribute("src"), location.href).pathname : null;
+  });
+
+  function isVisible(src) {
+    const path = new URL(src, location.href).pathname;
+    return shown.some((s) => s && new URL(s, location.href).pathname === path);
+  }
+
+  function pickUnused() {
+    const candidates = pool.filter((src) => !isVisible(src));
+    if (!candidates.length) return null;
+    return candidates[Math.floor(Math.random() * candidates.length)];
+  }
+
+  function swapTile(index) {
+    const tile = tiles[index];
+    const current = tile.querySelector(".home-tile-img.is-active");
+    const next = tile.querySelector(".home-tile-img:not(.is-active)");
+    if (!current || !next) return;
+
+    const newSrc = pickUnused();
+    if (!newSrc) return;
+
+    next.onload = () => {
+      next.classList.add("is-active");
+      current.classList.remove("is-active");
+      shown[index] = new URL(newSrc, location.href).pathname;
+    };
+    next.src = newSrc;
+  }
+
+  if (reduceMotion) return;
+
+  let tick = 0;
+  setInterval(() => {
+    // alterna o tile de forma pseudo-aleatória, um por vez
+    const index = (Math.floor(Math.random() * tiles.length) + tick) % tiles.length;
+    tick++;
+    swapTile(index);
+  }, 3500);
 })();
 
 /* FORMULÁRIO */

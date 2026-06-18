@@ -340,8 +340,7 @@ img,
 /* FONTE TT MILKS SCRIPT */
 @font-face {
   font-family: 'TT Milks Script';
-  src: url('./assets/TT Milks Script Regular.woff2') format('woff2'),
-       url('./assets/TT Milks Script Regular.woff')  format('woff');
+  src: url('./assets/TT Milks Script Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -352,7 +351,7 @@ img,
   position: fixed;
   inset: 0;
   z-index: 9999;
-  pointer-events: all;
+  pointer-events: auto;
   cursor: default;
   display: flex;
   align-items: flex-start;
@@ -419,7 +418,7 @@ img,
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  width: 100vw;
+  width: 100%;
   margin: 0;
 }
 
@@ -485,21 +484,46 @@ img,
   transition: transform 0.8s ease;
 }
 
-.project-tile-link:hover .project-tile-image::after {
+.project-tile-link:hover .project-tile-image::after,
+.project-tile:hover .project-tile-image::after {
   opacity: 1;
 }
 
-.project-tile-link:hover .project-tile-image img {
+.project-tile-link:hover .project-tile-image img,
+.project-tile:hover .project-tile-image img {
   transform: scale(1.045);
   filter: brightness(0.78);
 }
 
-.project-tile-link:hover .project-tile-overlay {
+.project-tile-link:hover .project-tile-overlay,
+.project-tile:hover .project-tile-overlay {
   opacity: 1;
 }
 
-.project-tile-link:hover .project-tile-overlay h2 {
+.project-tile-link:hover .project-tile-overlay h2,
+.project-tile:hover .project-tile-overlay h2 {
   transform: translateY(0);
+}
+
+/* GALERIA HOME (rotativa) */
+.home-tile {
+  position: relative;
+  overflow: hidden;
+  height: clamp(320px, 34vw, 620px);
+}
+
+.home-tile-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.home-tile-img.is-active {
+  opacity: 1;
 }
 
 /* QUEM SOMOS */
@@ -552,6 +576,8 @@ img,
 .about-split-inner p {
   color: var(--white);
   font-size: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .about-split-inner p + p {
@@ -564,6 +590,7 @@ img,
   font-style: normal;
   font-size: 1.6rem !important;
   color: var(--white) !important;
+  text-align: center !important;
 }
 
 /* CONTATO */
@@ -572,6 +599,27 @@ img,
   display: grid;
   grid-template-columns: 5fr 7fr;
   background: var(--white);
+}
+
+@keyframes contactReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.contact-info,
+.contact-form-wrap {
+  animation: contactReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact-form-wrap {
+  animation-delay: 0.12s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-info,
+  .contact-form-wrap {
+    animation: none;
+  }
 }
 
 .contact-info {
@@ -625,8 +673,8 @@ img,
 }
 
 .btn-whatsapp {
-  background: #25D366;
-  border: none;
+  background: var(--blue-500);
+  border: 1px solid var(--blue-500);
   color: var(--white);
   gap: 10px;
   width: 100%;
@@ -638,7 +686,8 @@ img,
 }
 
 .btn-whatsapp:hover {
-  background: #1fba5a;
+  background: #628eb5;
+  border-color: #628eb5;
   transform: translateY(-1px);
 }
 
@@ -845,6 +894,10 @@ img,
   }
 
   .project-tile-image img {
+    height: 58vh;
+  }
+
+  .home-tile {
     height: 58vh;
   }
 

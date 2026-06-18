@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.donnaarquitetura.com.br)"
+      "WebFetch(domain:www.donnaarquitetura.com.br)",
+      "Bash(ffmpeg -y -loglevel error -i assets/IMG_4471.jpg -vf \"scale='min\\(1600,iw\\)':-2\" -c:v libwebp -quality 82 assets/quem-somos.webp)",
+      "Bash(node gen-projetos.js)",
+      "Bash(rm gen-projetos.js)",
+      "Bash(xargs -n1 basename)"
     ]
   }
 }
