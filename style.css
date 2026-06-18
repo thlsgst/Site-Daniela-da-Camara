@@ -119,7 +119,8 @@ img,
 }
 
 .header-container {
-  width: min(100% - 56px, var(--container));
+  width: 100%;
+  padding: 0 clamp(20px, 4vw, 64px);
   min-height: var(--header-height);
   margin: 0 auto;
   display: grid;
@@ -371,7 +372,7 @@ img,
   text-align: center;
   text-shadow: 0 2px 20px rgba(18, 39, 52, 0.35);
   clip-path: inset(0 100% 0 0);
-  margin-top: calc(var(--header-height) + clamp(320px, 34vw, 620px));
+  margin-top: calc(var(--header-height) + (100vh - var(--header-height)) / 2);
   transform: translateY(-50%);
   animation: scriptWrite 2.1s cubic-bezier(0.4, 0, 0.6, 1) 0.3s forwards;
   /* spans inline no desktop */
@@ -551,7 +552,7 @@ img,
 .home-tile {
   position: relative;
   overflow: hidden;
-  height: clamp(320px, 34vw, 620px);
+  height: calc((100vh - var(--header-height)) / 2);
 }
 
 .home-tile-img {
@@ -640,7 +641,7 @@ img,
   min-height: calc(100vh - var(--header-height));
   display: grid;
   grid-template-columns: 5fr 7fr;
-  background: var(--white);
+  background: #3e5b72;
 }
 
 @keyframes contactReveal {
@@ -669,7 +670,7 @@ img,
   align-items: center;
   justify-content: flex-end;
   padding: 60px 56px 60px 40px;
-  border-right: 1px solid var(--line);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .contact-info-inner {
@@ -677,7 +678,7 @@ img,
 }
 
 .contact-info-inner h1 {
-  color: var(--title);
+  color: var(--white);
   font-size: clamp(1.8rem, 3vw, 3rem);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -685,7 +686,7 @@ img,
 }
 
 .contact-intro {
-  color: var(--text-soft);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.97rem;
   line-height: 1.7;
   margin-bottom: 40px;
@@ -699,7 +700,7 @@ img,
 }
 
 .contact-detail i {
-  color: var(--blue-400);
+  color: var(--blue-200);
   font-size: 1rem;
   margin-top: 3px;
   flex-shrink: 0;
@@ -709,7 +710,7 @@ img,
   display: flex;
   flex-direction: column;
   gap: 3px;
-  color: var(--text-soft);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 0.9rem;
   line-height: 1.65;
 }
@@ -901,6 +902,10 @@ img,
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .projects-grid-home .home-tile {
+    height: calc((100vh - var(--header-height)) / 3);
+  }
+
   .about-page-main {
     height: auto;
     overflow: visible;
@@ -923,7 +928,7 @@ img,
 
 @media (max-width: 640px) {
   .header-container {
-    width: min(100% - 24px, var(--container));
+    padding: 0 18px;
   }
 
   .logo-image {
@@ -939,8 +944,8 @@ img,
     height: 58vh;
   }
 
-  .home-tile {
-    height: 58vh;
+  .projects-grid-home .home-tile {
+    height: 56vh;
   }
 
   .project-tile-overlay {
@@ -969,15 +974,25 @@ img,
   .about-split-inner h1 {
     margin-bottom: 22px;
   }
+}
 
-  /* Animação mobile — duas linhas com fade separado */
+/* TABLETS / IPAD — frase de carregamento em duas linhas, preenchendo a tela */
+@media (max-width: 1024px) {
+  .script-overlay {
+    align-items: center;
+  }
+
   .script-text {
+    margin-top: 0;
+    transform: none;
     clip-path: none;
     animation: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 0.1em;
+    line-height: 1.05;
+    font-size: clamp(2.4rem, 9vw, 4.6rem);
   }
 
   .script-line {
