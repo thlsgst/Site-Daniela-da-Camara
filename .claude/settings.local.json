@@ -6,7 +6,12 @@
       "Bash(node gen-projetos.js)",
       "Bash(rm gen-projetos.js)",
       "Bash(xargs -n1 basename)",
-      "Bash(node build.js)"
+      "Bash(node build.js)",
+      "Read(//d/Users/Thales/Documents/1. Trabalho/1. Clientes/1. Ativos/AYA/Clientes/Daniela da Camara/**)",
+      "Bash(pdftotext -f 1 -l 231 \"Identidade Visual/BrandBook Daniela da Camara.pdf\" -)",
+      "Bash(python -)",
+      "Bash(node -e ' *)",
+      "Bash(node --check script.js)"
     ]
   }
 }

@@ -562,22 +562,52 @@ img,
 /* GALERIA HOME (rotativa) */
 .home-tile {
   position: relative;
+  display: block;
   overflow: hidden;
   height: calc((100vh - var(--header-height)) / 2);
 }
 
 .home-tile-img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 1.4s ease;
+  transition:
+    transform 2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1s ease;
 }
 
-.home-tile-img.is-active {
+.home-tile:hover .home-tile-img {
+  transform: scale(1.045);
+  filter: brightness(0.8);
+}
+
+.home-tile-caption {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  padding: 28px;
+  background: linear-gradient(to top, rgba(18, 31, 42, 0.45), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.home-tile:hover .home-tile-caption {
   opacity: 1;
+}
+
+.home-tile-caption h2 {
+  color: var(--white);
+  font-size: clamp(1.1rem, 1.7vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transform: translateY(10px);
+  transition: transform 0.8s ease;
+}
+
+.home-tile:hover .home-tile-caption h2 {
+  transform: translateY(0);
 }
 
 /* QUEM SOMOS */
@@ -611,7 +641,7 @@ img,
   justify-content: center;
   padding: 60px;
   overflow-y: auto;
-  background: #3e5b72;
+  background: var(--white);
 }
 
 .about-split-inner {
@@ -620,7 +650,7 @@ img,
 }
 
 .about-split-inner h1 {
-  color: var(--white);
+  color: var(--title);
   font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -628,7 +658,7 @@ img,
 }
 
 .about-split-inner p {
-  color: var(--white);
+  color: var(--text-soft);
   font-size: 1rem;
   text-align: justify;
   text-justify: inter-word;
@@ -643,7 +673,7 @@ img,
   font-family: 'TT Milks Script', cursive;
   font-style: normal;
   font-size: 1.6rem !important;
-  color: var(--white) !important;
+  color: var(--title) !important;
   text-align: center !important;
 }
 
@@ -652,7 +682,7 @@ img,
   min-height: calc(100vh - var(--header-height));
   display: grid;
   grid-template-columns: 5fr 7fr;
-  background: #3e5b72;
+  background: var(--blue-100);
 }
 
 @keyframes contactReveal {
@@ -681,7 +711,7 @@ img,
   align-items: center;
   justify-content: flex-end;
   padding: 60px 56px 60px 40px;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid var(--line);
 }
 
 .contact-info-inner {
@@ -689,7 +719,7 @@ img,
 }
 
 .contact-info-inner h1 {
-  color: var(--white);
+  color: var(--title);
   font-size: clamp(1.8rem, 3vw, 3rem);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -697,7 +727,7 @@ img,
 }
 
 .contact-intro {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-soft);
   font-size: 0.97rem;
   line-height: 1.7;
   margin-bottom: 40px;
@@ -711,7 +741,7 @@ img,
 }
 
 .contact-detail i {
-  color: var(--blue-200);
+  color: var(--blue-500);
   font-size: 1rem;
   margin-top: 3px;
   flex-shrink: 0;
@@ -721,7 +751,7 @@ img,
   display: flex;
   flex-direction: column;
   gap: 3px;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-soft);
   font-size: 0.9rem;
   line-height: 1.65;
 }
@@ -761,8 +791,8 @@ img,
 .form-group input,
 .form-group textarea {
   width: 100%;
-  border: 1px solid rgba(113, 158, 199, 0.18);
-  background: var(--bg-soft);
+  border: 1px solid rgba(113, 158, 199, 0.28);
+  background: var(--white);
   border-radius: 16px;
   padding: 16px 18px;
   color: var(--text);
