@@ -141,6 +141,40 @@ function filterProjects(category) {
   }
 })();
 
+/* HOME — 6 tiles aleatórios, cada um leva ao seu projeto */
+(function homeRandom() {
+  const g = document.getElementById("homeGallery");
+  if (!g) return;
+  const tiles = Array.from(g.querySelectorAll(".home-tile"));
+
+  const items = [
+    { name: "Apartamento - Terraço Vila Bela", href: "projeto-apartamento-terraco-vila-bela.html", slug: "apartamento-terraco-vila-bela", count: 13 },
+    { name: "Casa Eliana", href: "projeto-casa-eliana.html", slug: "casa-eliana", count: 6 },
+    { name: "Casa Jatobás", href: "projeto-casa-jatobas.html", slug: "casa-jatobas", count: 7 },
+    { name: "Sutti Advogados Associados", href: "projeto-sutti-advogados.html", slug: "sutti-advogados", count: 16 },
+    { name: "Casa Messina", href: "projetos.html?categoria=interiores", slug: "interiores", fixed: 1 },
+    { name: "Café Decor", href: "projetos.html?categoria=interiores", slug: "interiores", fixed: 3 },
+    { name: "Lavanderia - Jundiaí Decor", href: "projetos.html?categoria=interiores", slug: "interiores", fixed: 4 },
+  ];
+
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+
+  items.slice(0, tiles.length).forEach((p, idx) => {
+    const t = tiles[idx];
+    const n = p.fixed || (Math.floor(Math.random() * p.count) + 1);
+    const src = `./assets/galeria/${p.slug}-${String(n).padStart(2, "0")}.webp`;
+    t.setAttribute("href", p.href);
+    t.setAttribute("aria-label", "Ver projeto " + p.name);
+    const img = t.querySelector(".home-tile-img");
+    if (img) { img.setAttribute("src", src); img.setAttribute("alt", p.name + " — Daniela da Camara"); }
+    const h = t.querySelector(".home-tile-caption h2");
+    if (h) h.textContent = p.name;
+  });
+})();
+
 /* FORMULÁRIO */
 if (contactForm) {
   contactForm.addEventListener("submit", (event) => {
