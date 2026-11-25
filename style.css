@@ -559,55 +559,35 @@ img,
   letter-spacing: 0.04em;
 }
 
-/* GALERIA HOME (rotativa) */
-.home-tile {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  height: calc((100vh - var(--header-height)) / 2);
+/* GALERIA HOME (faixas) — todas as faixas com a mesma altura */
+.home-bands {
+  --band-height: min(calc(100svh - var(--header-height)), 60vw);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.home-tile-img {
+.home-band {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100%;
+  height: var(--band-height);
+  overflow: hidden;
+}
+
+.home-band-trio {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.home-band img {
   width: 100%;
   height: 100%;
+  min-width: 0;
   object-fit: cover;
-  transition:
-    transform 2s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 1s ease;
-}
-
-.home-tile:hover .home-tile-img {
-  transform: scale(1.045);
-  filter: brightness(0.8);
-}
-
-.home-tile-caption {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  align-items: flex-end;
-  padding: 28px;
-  background: linear-gradient(to top, rgba(18, 31, 42, 0.45), transparent 55%);
-  opacity: 0;
-  transition: opacity 0.7s ease;
-}
-
-.home-tile:hover .home-tile-caption {
-  opacity: 1;
-}
-
-.home-tile-caption h2 {
-  color: var(--white);
-  font-size: clamp(1.1rem, 1.7vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transform: translateY(10px);
-  transition: transform 0.8s ease;
-}
-
-.home-tile:hover .home-tile-caption h2 {
-  transform: translateY(0);
+  object-position: var(--pos, 50% 50%);
+  /* --zoom aproxima a foto dentro da faixa (ex.: ladrilho sem o armário) */
+  transform: scale(var(--zoom, 1));
+  transform-origin: var(--pos, 50% 50%);
 }
 
 /* QUEM SOMOS */
@@ -943,10 +923,6 @@ img,
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .projects-grid-home .home-tile {
-    height: calc((100vh - var(--header-height)) / 3);
-  }
-
   .about-page-main {
     height: auto;
     overflow: visible;
@@ -983,10 +959,6 @@ img,
 
   .project-tile-image img {
     height: 58vh;
-  }
-
-  .projects-grid-home .home-tile {
-    height: 56vh;
   }
 
   .project-tile-overlay {
