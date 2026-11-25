@@ -213,6 +213,7 @@ img,
 .nav-link:hover::after,
 .nav-button:hover::after,
 .nav-link.active::after,
+.nav-button.active::after,
 .has-submenu.open .nav-button::after {
   transform: scaleX(1);
 }
